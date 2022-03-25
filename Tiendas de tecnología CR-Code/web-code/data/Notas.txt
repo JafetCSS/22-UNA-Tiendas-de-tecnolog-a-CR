@@ -1,0 +1,1 @@
+Solo se permiten archivos de data en formato nombreData.php, excepto la clase data que sera data.php

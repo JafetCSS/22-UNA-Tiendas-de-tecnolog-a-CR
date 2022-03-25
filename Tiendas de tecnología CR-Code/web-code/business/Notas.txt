@@ -1,0 +1,1 @@
+Solo se permiten clases de controladora, business y logica en formato nombreBusiness.php, nombreController.php y nombreLogic.php

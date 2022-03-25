@@ -1,0 +1,1 @@
+Solo se permiten archivos de dominio en formato nombre.php

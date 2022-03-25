@@ -1,0 +1,1 @@
+Solo se permiten archivos javascript en formato nombreJS.js
