@@ -1,0 +1,1 @@
+Solo se permiten archivos css en formato nombreCSS.css

@@ -1,0 +1,2 @@
+Solo se permiten imagenes la idea es manejar las imagenes de un mismo objeto en carpetas separadas ejemplo para el objeto carros se crea una carpeta y se añade la imagen dentro
+en este ejemplo la ruta de raíz sería ../resources/images/imageCarros/carro1 y extención .png, .jpg o .jpeg

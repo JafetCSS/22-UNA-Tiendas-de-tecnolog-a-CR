@@ -1,0 +1,1 @@
+Solo se permiten backups de sql de base de datos en el siguiente formato     nombre de la base de datos-fecha.sql
