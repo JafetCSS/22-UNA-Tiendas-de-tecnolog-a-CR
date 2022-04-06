@@ -15,5 +15,11 @@ class AccountBusiness {
 
         return $this->accountData->updateChangeAccountState($id);
     }
+
+    //consult the account by the account store id in the database
+    public function getAccountByStoreId($storeId, $account){
+
+        return $this->accountData->consultGetAccountByStoreId($storeId, $account);
+    }
 }
 ?>

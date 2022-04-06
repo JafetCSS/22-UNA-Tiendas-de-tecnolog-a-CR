@@ -1,6 +1,14 @@
 <?php
 require_once '../business/storeRequestBusiness.php'; // allow access to storeRequestBusiness methods
+require_once '../business/accountBusiness.php'; // allow access to accountBusiness methods
+require_once '../business/storeBusiness.php'; // allow access to storeBusiness methods
+require_once '../business/storeContactBusiness.php'; // allow access to storeContactBusiness methods
+require_once '../business/storeAddressBusiness.php'; // allow access to storeAddressBusiness methods
 require_once '../domain/storeRequest.php'; // allow access to storeRequest methods
+require_once '../domain/storeAddress.php'; // allow access to storeAddress methods
+require_once '../domain/storeContact.php'; // allow access to storeContact methods
+require_once '../domain/store.php'; // allow access to store methods
+require_once '../domain/account.php'; // allow access to account methods
 
 class StoreRequestLogic{
     
@@ -32,7 +40,7 @@ class StoreRequestLogic{
                 echo '<tr class="table-light">';
                 echo '<td>'.$storeRequest->getStoreRequestId().'</td>';
                 echo '<td>Sin procesar</td>';
-                echo '<td><input class="btn btn-success" type="button" id="seeAllInformationButton" value="Ver información" onclick="seeAllInformation('.$storeRequest->getStoreRequestStoreId().')" /></td>';
+                echo '<td><input class="btn btn-primary" type="button" id="seeAllInformationButton" value="Ver información" onclick="seeAllInformation('.$storeRequest->getStoreRequestStoreId().')" /></td>';
                 echo '<td><input class="btn btn-success" type="button" id="acceptButton" value="Aceptar" onclick="acceptStoreRequest('.$storeRequest->getStoreRequestStoreId().')" /></td>';
                 echo '<td><input class="btn btn-danger" type="button" id="rejectButton" value="Rechazar" onclick="rejectStoreRequest('.$storeRequest->getStoreRequestStoreId().')" /></td>';
                 echo '</tr>';
@@ -43,9 +51,39 @@ class StoreRequestLogic{
             echo '</div>';
         }else{
 
-            echo '<h1 id="no-raw-store-request"></h1>';
+            echo '<h1 id="no-raw-store-request">No hay solicitudes de tiendas sin procesar</h1>';
         }
 
         echo '</section>';
+    }
+
+    public function acceptStoreRequest($storeId){
+
+        $adminId = 1;//this will be get with session vars lately
+        $date = date('Y-m-d', time()); 
+        $storeRequestBusiness = new StoreRequestBusiness();
+        $storeRequestBusiness->changeStatusRawStoreRequest($storeId, $date, $adminId, "Accept");
+        $accountBusiness = new AccountBusiness();
+        $accountBusiness->changeAccountState($storeId);
+        echo "Complete";
+    }
+
+    public function rejectStoreRequest($storeId){
+
+        $adminId = 1;//this will be get with session vars lately
+        $date = date('Y-m-d', time()); 
+        $storeRequestBusiness = new StoreRequestBusiness();
+        $storeRequestBusiness->changeStatusRawStoreRequest($storeId, $date, $adminId, "Reject");
+        echo "Complete";
+    }
+    
+    public function showAllInformationRawStoreRequest($storeId){
+
+        $storeAddress = new StoreAddress(0, "", "", "", "", $storeId);
+        $account = new Account(0, "", "", "", NULL, $storeId);
+        $storeRequest = new StoreRequest(0, $storeId, "Sin procesar", NULL, 0);
+        $store = new Store($storeId, "", 0, "", "", "", "", "", $storeAddress, NULL, $storeRequest, $account);
+        $store->chargeStoreByStoreId();
+        $store->showAllStoreInformation();
     }
 }

@@ -1,0 +1,43 @@
+body{
+    text-align: center;
+}
+#error-message{
+
+    color: red;
+    text-align: center;
+}
+
+#manage-raw-store-request #manage-raw-store-request-information-store-profile-image{
+
+    width: 400px;
+    height: 400px;
+}
+
+#manage-raw-store-request #manage-raw-store-request-information-store-qr{
+
+    width: 400px;
+    height: 400px;
+}
+
+#manage-raw-store-request #goBack{
+
+    width:33%;
+    height: 100px;
+}
+
+#manage-raw-store-request #acceptButton{
+
+    width:33%;
+    height: 100px;
+}
+
+#manage-raw-store-request #rejectButton{
+
+    width:33%;
+    height: 100px;
+}
+
+.footer{
+
+    margin-top: 50px;
+}

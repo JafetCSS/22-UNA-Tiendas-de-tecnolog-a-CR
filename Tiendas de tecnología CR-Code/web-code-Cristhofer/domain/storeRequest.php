@@ -66,5 +66,13 @@ class StoreRequest{
 
         return $this->storeRequest_adminId;
     }
+
+    //class methods
+
+    public function chargeStoreRequestByStoreId(){//charge the class from database by the store id
+
+        $storeRequestBusiness = new StoreRequestBusiness();
+        $storeRequestBusiness->getRawStoreRequestByStoreId($this->getStoreRequestStoreId(), $this);
+    }
 }
 ?>

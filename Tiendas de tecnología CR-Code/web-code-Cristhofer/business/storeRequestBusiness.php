@@ -15,5 +15,17 @@ class StoreRequestBusiness {
 
         return $this->storeRequestData->consultGetAllRawStoreRequest();
     }
+
+    //update the raw store request by the store id in the database
+    public function changeStatusRawStoreRequest($storeId, $date, $adminId, $status){
+
+        return $this->storeRequestData->updateStatusRawStoreRequest($storeId, $date, $adminId, $status);
+    }
+
+    //consult the raw store request by the store id in the database
+    public function getRawStoreRequestByStoreId($storeId, $storeRequest){
+
+        return $this->storeRequestData->consultGetRawStoreRequestByStoreId($storeId, $storeRequest);
+    }
 }
 ?>

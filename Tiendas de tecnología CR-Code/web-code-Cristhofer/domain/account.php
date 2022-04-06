@@ -73,5 +73,18 @@ class Account{
 
         return $this->account_typeId = $account_typeId;
     }
+
+    public function getAccountTypeId() {
+
+        return $this->account_typeId;
+    }
+
+    //class methods 
+
+    public function chargeAccountByStoreId(){//charge the class from database by the store id
+
+        $accountBusiness = new AccountBusiness();
+        $accountBusiness->getAccountByStoreId($this->getAccountTypeId(), $this);
+    }
 }
 ?>

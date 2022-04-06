@@ -78,5 +78,13 @@ class StoreAddress{
 
         return $this->storeAddress_storeId;
     }
+
+    //class methods
+
+    public function chargeStoreAddressByStoreId(){//charge the class from database by the store id
+
+        $storeAddressBusiness = new StoreAddressBusiness();
+        $storeAddressBusiness->getStoreAddressByStoreId($this->getStoreAddressStoreId(), $this);
+    }
 }
 ?>

@@ -1,9 +1,8 @@
-function seeAllInformation(storeId){
+function goBack(){
 
     let form = document.createElement('form');
-    form.action = '../view/checkStoreRequestInformationView.php';
+    form.action = '../view/manageRawStoreRequestView.php';
     form.method = 'Post';
-    form.innerHTML = '<input name="storeId" value="'+storeId+'">';
     // add form to documento to send it
     document.body.append(form);
     form.submit();
@@ -26,10 +25,20 @@ function acceptStoreRequest(storeId){
             if(result+"." == "Complete."){
 
                 alert("Se aceptó la solicitud correctamente");
-                location.reload();
+                let form = document.createElement('form');
+                form.action = '../view/manageRawStoreRequestView.php';
+                form.method = 'Post';
+                // add form to documento to send it
+                document.body.append(form);
+                form.submit();
             }else{
                 alert("Hubo un error al aceptar solicitud");
-                location.reload();
+                let form = document.createElement('form');
+                form.action = '../view/manageRawStoreRequestView.php';
+                form.method = 'Post';
+                // add form to documento to send it
+                document.body.append(form);
+                form.submit();
 
             }
         }
@@ -53,10 +62,20 @@ function rejectStoreRequest(storeId){
             if(result+"." == "Complete."){
 
                 alert("Se rechazó la solicitud correctamente");
-                location.reload();
+                let form = document.createElement('form');
+                form.action = '../view/manageRawStoreRequestView.php';
+                form.method = 'Post';
+                // add form to documento to send it
+                document.body.append(form);
+                form.submit();
             }else{
                 alert("Hubo un error al rechazar solicitud");
-                location.reload();
+                let form = document.createElement('form');
+                form.action = '../view/manageRawStoreRequestView.php';
+                form.method = 'Post';
+                // add form to documento to send it
+                document.body.append(form);
+                form.submit();
 
             }
         }
