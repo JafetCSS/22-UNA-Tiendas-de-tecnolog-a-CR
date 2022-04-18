@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Store Technology</string>
+
+    <string name="string_login">LOGIN</string>
+
+    <string name="string_username">username</string>
+    <string name="string_password">Password</string>
+
+    <string name="string_enter">Ingresar</string>
+</resources>
